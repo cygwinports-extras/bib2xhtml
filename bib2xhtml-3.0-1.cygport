@@ -1,0 +1,26 @@
+DESCRIPTION="Converts BibTeX into XHTML"
+HOMEPAGE="http://www.spinellis.gr/sw/textproc/bib2xhtml/"
+SRC_URI="${HOMEPAGE}/${PN}-v${PV}.tar.gz"
+SRC_DIR="${PN}-v${PV}"
+
+src_compile() {
+	check_prog_req perl
+
+	lndirs
+	cd ${B}
+	perl gen-bst || error
+}
+
+src_install() {
+	cd ${B}
+	dobin ${PN}
+
+	insinto /usr/share/texmf-dist/bibtex/bst/${PN}
+	doins html-*.bst
+
+	insinto /usr/share/texmf-dist/doc/bibtex/${PN}
+	doins ${PN}.{html,pdf}
+
+	newman ${PN}.man ${PN}.1
+}
+DOCS="README.md"

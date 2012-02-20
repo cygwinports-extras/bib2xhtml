@@ -1,0 +1,8 @@
+category: Publishing
+requires: perl texlive texlive-collection-basic
+sdesc: "Converts BibTeX into XHTML"
+ldesc: "bib2xhtml is a program that converts BibTeX files into HTML 
+(specifically XHTML 1.0). The conversion is mostly done by specialized 
+BibTeX style files, derived from a converted bibliography style 
+template. This ensures that the original BibTeX styles are faithfully 
+reproduced. Some postprocessing is performed by Perl code."
